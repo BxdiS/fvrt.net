@@ -8,8 +8,29 @@
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="fonts/stylesheet.css">
 	<link rel="stylesheet" href="css/style.css">
+
+	<link rel="preload" href="fonts/Montserrat-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+	<link rel="preload" href="fonts/Montserrat-ExtraBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+	<link rel="preload" href="fonts/Montserrat-Medium.woff" as="font" type="font/woff" crossorigin="anonymous">
+	<link rel="preload" href="fonts/Montserrat-ExtraBold.woff" as="font" type="font/woff" crossorigin="anonymous">
+
 	<script type="text/javascript" src="bootstrap.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.4.0/dist/lazyload.min.js"></script>
+
+	<style>
+		.fade-in-up {
+			opacity: 0;
+			transform: translateY(20px);
+			transition: opacity 1s ease, transform 1s ease;
+			visibility: hidden;
+		}
+		.fade-in-up.show {
+			opacity: 1;
+			transform: translateY(0);
+			visibility: visible;
+			will-change: opacity, transform;
+		}
+	</style>
 </head>
 <body>
 <div class="container">
@@ -22,26 +43,35 @@
 		</div>
 	</div>
 </div>
+
 <script>
-  window.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("main-title").classList.add("show");
+	window.addEventListener('load', () => {
+		document.fonts.ready.then(() => {
+			const mainTitle = document.getElementById("main-title");
+			const subtitle = document.getElementById("subtitle");
 
-    setTimeout(() => {
-      document.getElementById("subtitle").classList.add("show");
-    }, 300); // задержка для h5
-  });
+			mainTitle.classList.remove("show");
+			subtitle.classList.remove("show");
 
-  window.addEventListener('keydown', function (e) {
-  // Блокируем F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
-  if (
-    e.key === 'F12' ||
-    (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) ||
-    (e.ctrlKey && e.key === 'U')
-  ) {
-    e.preventDefault();
-  }
-});
+			void mainTitle.offsetWidth; // сброс анимации
 
+			mainTitle.classList.add("show");
+			setTimeout(() => {
+				subtitle.classList.add("show");
+			}, 300);
+		});
+	});
+
+	window.addEventListener('keydown', function (e) {
+		// Блокируем F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+		if (
+			e.key === 'F12' ||
+			(e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) ||
+			(e.ctrlKey && e.key === 'U')
+		) {
+			e.preventDefault();
+		}
+	});
 </script>
 </body>
 </html>
