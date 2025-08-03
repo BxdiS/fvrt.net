@@ -1,69 +1,67 @@
 *,
 *::before,
 *::after {
-	box-sizing: border-box;
-
+  box-sizing: border-box;
 }
+
+html,
 body {
-	background: black;
-	text-align: center;
-	user-select: none; /* стандартное свойство */
-  -webkit-user-select: none; /* для Safari и Chrome */
-  -moz-user-select: none; /* для Firefox */
-  -ms-user-select: none; /* для IE/Edge */
-  outline: none;             /* Убрать обводку */
-}
-
-
-html {
-	min-height: 100%;
-	background-size: cover;
-}
-
-html, body {
-	margin: 0;
+  margin: 0;
   padding: 0;
-  overflow-x: hidden;
   height: 100%;
+  background: black;
+  text-align: center;
+  overflow-x: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  outline: none;
 }
 
 h1 {
-	font-family: Montserrat ExtraBold;
-	font-size: 61.04px;
-	background: linear-gradient(90deg, rgba(255, 255, 255, 0.48) 0%, rgba(255, 255, 255, 0.90) 50%, rgba(255, 255, 255, 0.48) 100%);
-	display: inline-block;
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	margin: 0px;
+  font-family: "Montserrat ExtraBold", sans-serif;
+  font-size: 61px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.48) 0%,
+    rgba(255, 255, 255, 0.9) 50%,
+    rgba(255, 255, 255, 0.48) 100%
+  );
+  display: inline-block;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
 }
 
 h5 {
-	font-family: Montserrat Medium;
-	font-size: 25px;
-	background: linear-gradient(90deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.48) 50%, rgba(255, 255, 255, 0.24) 100%);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	margin: 0px;
+  font-family: "Montserrat Medium", sans-serif;
+  font-size: 25px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.24) 0%,
+    rgba(255, 255, 255, 0.48) 50%,
+    rgba(255, 255, 255, 0.24) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
 }
 
 a {
-  text-decoration: none;   /* Убирает подчёркивание */
-  color: inherit;          /* Наследует цвет родителя или можно задать свой */
+  text-decoration: none;
+  color: inherit;
 }
 
-
-img { pointer-events: none; }
-
-
-
-.fullscreen {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.highlight {
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.3);
+  transition: -webkit-text-fill-color 0.3s ease;
+  cursor: pointer;
 }
 
+.highlight:hover {
+  -webkit-text-fill-color: white;
+}
 
 .fade-in-up {
   opacity: 0;
@@ -78,17 +76,3 @@ img { pointer-events: none; }
   visibility: visible;
   will-change: opacity, transform;
 }
-
-
-
-.highlight {
-  -webkit-text-fill-color: rgba(255, 255, 255, 0.3); /* начальный цвет */
-  transition: -webkit-text-fill-color 0.3s ease;
-  cursor: pointer;
-  text-decoration: none; /* убрать подчеркивание */
-}
-
-.highlight:hover {
-  -webkit-text-fill-color: white; /* при наведении */
-}
-

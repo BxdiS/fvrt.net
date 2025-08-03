@@ -1,0 +1,94 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+
+}
+body {
+	background: black;
+	text-align: center;
+	user-select: none; /* стандартное свойство */
+  -webkit-user-select: none; /* для Safari и Chrome */
+  -moz-user-select: none; /* для Firefox */
+  -ms-user-select: none; /* для IE/Edge */
+  outline: none;             /* Убрать обводку */
+}
+
+
+html {
+	min-height: 100%;
+	background-size: cover;
+}
+
+html, body {
+	margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  height: 100%;
+}
+
+h1 {
+	font-family: Montserrat ExtraBold;
+	font-size: 61.04px;
+	background: linear-gradient(90deg, rgba(255, 255, 255, 0.48) 0%, rgba(255, 255, 255, 0.90) 50%, rgba(255, 255, 255, 0.48) 100%);
+	display: inline-block;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	margin: 0px;
+}
+
+h5 {
+	font-family: Montserrat Medium;
+	font-size: 25px;
+	background: linear-gradient(90deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.48) 50%, rgba(255, 255, 255, 0.24) 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	margin: 0px;
+}
+
+a {
+  text-decoration: none;   /* Убирает подчёркивание */
+  color: inherit;          /* Наследует цвет родителя или можно задать свой */
+}
+
+
+img { pointer-events: none; }
+
+
+
+.fullscreen {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+  visibility: hidden;
+}
+
+.fade-in-up.show {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  will-change: opacity, transform;
+}
+
+
+
+.highlight {
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.3); /* начальный цвет */
+  transition: -webkit-text-fill-color 0.3s ease;
+  cursor: pointer;
+  text-decoration: none; /* убрать подчеркивание */
+}
+
+.highlight:hover {
+  -webkit-text-fill-color: white; /* при наведении */
+}
+
